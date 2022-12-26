@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CarObstacle : MonoBehaviour
 {
-    public enum CarObstacleType { 
+    public enum CarObstacleType
+    { 
         Barrier,
         Tree,
         Car,
@@ -19,6 +20,7 @@ public class CarObstacle : MonoBehaviour
     public CarObstacleType CarObstacleTypeValue { get { return this.carObstacleType; } }
 
     private CarAgent agent = null;
+
     void Awake()
     {
         // cache agent

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CachedCar
 {
@@ -27,7 +28,7 @@ public class CarSpots : MonoBehaviour
 
     public void Awake(){
         parkedCars = GetComponentsInChildren<CarObstacle>(true)
-            .Where(c => c.CarObstacleTypeValue == CarObstacleType.Car);
+            .Where(c => c.CarObstacleTypeValue == CarObstacleType.Car); 
 
         // cache all car positions and rotations
         foreach (CarObstacle obstacle in parkedCars)
@@ -47,8 +48,7 @@ public class CarSpots : MonoBehaviour
 
         for (int i = 0; i < howMany; i++)
         {
-            while (carsToHide.Count < howMany)
-            {
+            while (carsToHide.Count < howMany){
                 int carTohide = Random.Range(0, parkedCars.Count());
                 if (!carsToHide.Contains(carTohide))
                 {
